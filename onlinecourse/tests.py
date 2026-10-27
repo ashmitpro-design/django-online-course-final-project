@@ -66,6 +66,14 @@ class AssessmentFlowTests(TestCase):
         self.assertContains(response, "One?")
         self.assertContains(response, "csrfmiddlewaretoken")
 
+    def test_exam_post_requires_csrf_token(self):
+        client = self.client_class(enforce_csrf_checks=True)
+        client.force_login(self.user)
+        response = client.post(reverse("onlinecourse:submit", args=(self.course.id,)), {
+            f"question_{self.q1.id}": self.correct1.id,
+        })
+        self.assertEqual(response.status_code, 403)
+
     def test_admin_inline_configuration(self):
         self.assertEqual(QuestionAdmin.inlines, (ChoiceInline,))
         self.assertEqual(LessonAdmin.inlines, (QuestionInline,))
