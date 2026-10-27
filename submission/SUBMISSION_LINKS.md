@@ -1,21 +1,19 @@
 # Final Project Deliverables
 
-**Repository:** Not published. GitHub CLI is present, but its saved token for `ashmitpro-design` is invalid. Re-authenticate with `gh auth refresh -h github.com`, then publish the local repository as `django-online-course-final-project`.
+**Repository:** Publication in progress for `ashmitpro-design/django-online-course-final-project`. Public URLs will be recorded after the push is verified.
 
-The local source links below are ready for review. GitHub URLs are omitted until a push can be verified.
-
-| Task | Marks | Deliverable | Local path / status |
-|---|---:|---|---|
-| 1 | 3 | Assessment models | [onlinecourse/models.py](../onlinecourse/models.py) |
-| 2 | 3 | Admin classes and inlines | [onlinecourse/admin.py](../onlinecourse/admin.py) |
-| 3 | 1 | Admin screenshot | Not captured: desktop browser automation was stopped before the admin page loaded. Expected path: `submission/screenshots/03-admin-site.png`. |
-| 4 | 2 | Course detail template | [course_details_bootstrap.html](../onlinecourse/templates/onlinecourse/course_details_bootstrap.html) |
-| 5 | 2 | Submission and result views | [onlinecourse/views.py](../onlinecourse/views.py) |
-| 6 | 2 | Application routes | [onlinecourse/urls.py](../onlinecourse/urls.py) |
-| 7 | 2 | Successful exam screenshot | Not captured: desktop browser automation was stopped before the result page could be displayed. Expected path: `submission/screenshots/07-final.png`. |
+| Task | Marks | Deliverable | Local file | Public GitHub URL |
+|---|---:|---|---|---|
+| 1 | 3 | Assessment models | [models.py](../onlinecourse/models.py) | Pending publication |
+| 2 | 3 | Admin classes and inlines | [admin.py](../onlinecourse/admin.py) | Pending publication |
+| 3 | 1 | Admin screenshot | [03-admin-site.png](screenshots/03-admin-site.png) | Pending publication |
+| 4 | 2 | Course detail template | [course_details_bootstrap.html](../onlinecourse/templates/onlinecourse/course_details_bootstrap.html) | Pending publication |
+| 5 | 2 | Submission and result views | [views.py](../onlinecourse/views.py) | Pending publication |
+| 6 | 2 | Application routes | [urls.py](../onlinecourse/urls.py) | Pending publication |
+| 7 | 2 | Successful exam screenshot | [07-final.png](screenshots/07-final.png) | Pending publication |
 
 ## Local demo
 
-Install dependencies, apply migrations, and run `python manage.py seed_demo`. The demo learner is `demo_learner` with local-only password `DemoLearner-2026`. Sign in at `/accounts/login/`, open the course, choose the correct answer for each question, and submit.
+Install dependencies, apply migrations, and run `python manage.py seed_demo`. The demo learner is `demo_learner` with local-only password `DemoLearner-2026`. Sign in at `/accounts/login/`, open the sample course, choose the correct answers, and submit.
 
-The successful attempt was submitted through Django's CSRF-enforcing test client and its result page returned HTTP 200 with “Congratulations!”. The local test suite has 7 passing tests. The GitHub URLs and both screenshot artifacts remain outstanding.
+The result screenshot is from a real browser session after the learner submitted both correct answers. The result page showed **2 / 2 points**, **Passed**, and **Congratulations!**. The local test suite has 7 passing tests. Public file URLs will be recorded after the repository push is verified.
