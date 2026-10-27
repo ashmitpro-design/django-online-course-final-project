@@ -1,0 +1,9 @@
+{% extends 'onlinecourse/base.html' %}{% block title %}{{ course.name }}{% endblock %}{% block content %}
+<header class="mb-4"><h1>{{ course.name }}</h1><p class="lead">{{ course.description }}</p></header>
+{% if course.lessons.all %}<form method="post" action="{% url 'onlinecourse:submit' course.id %}">{% csrf_token %}
+{% for lesson in course.lessons.all %}<section class="card mb-3"><div class="card-body"><h2 class="h4">{{ lesson.title }}</h2><p>{{ lesson.content }}</p>
+{% for question in lesson.questions.all %}<fieldset class="border-top pt-3 mt-3"><legend class="h6">{{ forloop.counter }}. {{ question.question_text }} <small class="text-muted">({{ question.grade }} point{{ question.grade|pluralize }})</small></legend>
+{% for choice in question.choices.all %}<div class="form-check"><input class="form-check-input" type="radio" name="question_{{ question.id }}" id="choice_{{ choice.id }}" value="{{ choice.id }}"><label class="form-check-label" for="choice_{{ choice.id }}">{{ choice.choice_text }}</label></div>{% empty %}<p class="text-muted">No answer choices have been added.</p>{% endfor %}</fieldset>
+{% empty %}<p class="text-muted">No assessment questions for this lesson.</p>{% endfor %}</div></section>{% endfor %}
+{% if enrolled %}<button class="btn btn-primary btn-lg" type="submit">Submit exam</button>{% else %}<p class="alert alert-warning">Sign in with an enrolled learner account to submit the exam.</p>{% endif %}
+</form>{% else %}<p class="alert alert-info">This course has no lessons yet.</p>{% endif %}{% endblock %}
