@@ -18,4 +18,4 @@ The local source links below are ready for review. GitHub URLs are omitted until
 
 Install dependencies, apply migrations, and run `python manage.py seed_demo`. The demo learner is `demo_learner` with local-only password `DemoLearner-2026`. Sign in at `/accounts/login/`, open the course, choose the correct answer for each question, and submit.
 
-The successful attempt was submitted through Django's CSRF-enforcing test client and its result page returned HTTP 200 with “Congratulations!”. The local test suite has 6 passing tests. The GitHub URLs and both screenshot artifacts remain outstanding.
+The successful attempt was submitted through Django's CSRF-enforcing test client and its result page returned HTTP 200 with “Congratulations!”. The local test suite has 7 passing tests. The GitHub URLs and both screenshot artifacts remain outstanding.
